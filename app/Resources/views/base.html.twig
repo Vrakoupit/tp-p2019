@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>WSFoverflow</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+    </head>
+    <body>
+        <nav class="container navbar">
+            <ul>
+                <li><a href="{{ path('subject_index') }}"><img src="{{ asset('logo.png') }}" alt=""></a></li>
+                <li><a href="{{ path('subject_index') }}">Home</a></li>
+                <li><a href="{{ path('subject_resolved') }}">Topic solved</a></li>
+                <li><a href="{{ path('subject_create') }}">Create a topic</a></li>
+            </ul>
+        </nav>
+        <section class="container">
+            <main>
+                <h2>{{ block('title') }}</h2>
+                <section>
+                    {% block body %}{% endblock %}
+                </section>
+                <section>
+                    {% block replies %}{% endblock %}
+                </section>
+            </main>
+        </section>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

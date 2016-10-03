@@ -1,0 +1,22 @@
+'AppBundle\Entity\Subject':
+    subject_{1..25}:
+        title: '<sentence()>'
+        description: '<sentences(12, true)>'
+        resolved: true
+        updatedAt: '<dateTimeThisYear()>'
+        author: '<word(1,true)>'
+    subject_{26..50}:
+        title: '<sentence()>'
+        description: '<sentences(12, true)>'
+        resolved: false
+        updatedAt: '<dateTimeThisYear()>'
+        author: '<word(1,true)>'
+
+'AppBundle\Entity\Reply':
+    reply_{1..500}:
+        subject: '@subject_*'
+        reply: '<sentences(3, true)>'
+        createdAt: '<dateTimeThisYear()>'
+        author: '<word(1, true)>'
+        email: '<word(1, true)>@<word(1, true)>.low'
+        titleReply: '<sentence(1, true)>'

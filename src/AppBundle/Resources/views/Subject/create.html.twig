@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Create your topic' %}
+
+{% block body %}
+    <form action="{{ path('subject_create') }}" method="post" class="card-block form-create" novalidate="novalidate">
+        {{ form_widget(subjectCreateForm) }}
+        <button type="submit">Publish your question</button>
+    </form>
+{% endblock %}

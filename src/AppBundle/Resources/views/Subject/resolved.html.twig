@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Topics solved' %}
+
+{% block body %}
+    {% for subject in subjects_resolved %}
+        <article class="card card-block">
+            <h3 class="card-title"><a href="{{ path('subject_single', {id : subject.id}) }}">{{ subject.title }}</a></h3>
+            <section class="card-text">{{ subject.description }}</section>
+            <div>
+                <span> {{ subject.vote }} </span>
+            </div>
+            <span class="card-text">
+                <small class="text-muted">
+                    Date of resolution : {{ subject.updatedAt|localizeddate }} and created by {{ subject.author }}
+                </small>
+            </span>
+        </article>
+    {% endfor %}
+{% endblock %}

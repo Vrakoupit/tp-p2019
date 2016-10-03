@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Topics unsolved' %}
+
+{% block body %}
+    {% for subject in subjects %}
+        <article class="card card-block {% if subject.vote < 0 %} greyed {% endif %}">
+            <h3 class="card-title"><a href="{{ path('subject_single', {id : subject.id}) }}">{{ subject.title }}</a></h3>
+            <section class="card-text">{{ subject.description }}</section>
+            <div>
+                <a href="{{ path('subject_up_vote', {id:subject.id}) }}">&uparrow;</a>
+                <a href="{{ path('subject_down_vote', {id:subject.id}) }}">&downarrow;</a>
+                <span> {{ subject.vote }} </span>
+            </div>
+            <a href="{{ path('delete_subject', {id:subject.id}) }}">Delete topic</a>
+            <span class="card-text">
+                <small class="text-muted">
+                    Date of resolution : {{ subject.updatedAt|localizeddate }} and created by {{ subject.author }}
+                </small>
+            </span>
+        </article>
+    {% endfor %}
+{% endblock %}
